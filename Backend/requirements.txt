@@ -6,7 +6,7 @@ uvicorn==0.30.0
 starlette==0.37.2
 
 # Machine Learning
-tensorflow==2.16.1
+tensorflow==2.20.0
 xgboost==2.1.1
 scikit-learn==1.5.1
 
