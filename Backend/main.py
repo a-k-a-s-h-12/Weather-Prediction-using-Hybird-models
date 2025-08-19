@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import pickle
 import tensorflow as tf
-
+import os
 from weather_api import get_city_coordinates, get_daily_forecasts
 from prediction_service import predict_weather   
 
