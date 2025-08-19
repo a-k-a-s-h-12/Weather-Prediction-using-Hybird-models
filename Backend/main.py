@@ -7,16 +7,20 @@ from weather_api import get_city_coordinates, get_daily_forecasts
 from prediction_service import predict_weather   
 
 
-feature_extractor = tf.keras.models.load_model(
-    r"D:\Project\Weather Prediction using Hybird models\Backend\models\feature_extractor.h5"
-)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, "models")
+
+FEATURE_EXTRACTOR_PATH = os.path.join(MODEL_DIR, "feature_extractor.h5")
+XGB_MODEL_PATH = os.path.join(MODEL_DIR, "xgb_model.pkl")
+LABEL_ENCODER_PATH = os.path.join(MODEL_DIR, "label_encoder.pkl")
 
 
-with open(r"D:\Project\Weather Prediction using Hybird models\Backend\models\xgb_model.pkl", "rb") as f:
+feature_extractor = tf.keras.models.load_model(FEATURE_EXTRACTOR_PATH)
+
+with open(XGB_MODEL_PATH, "rb") as f:
     xgb_model = pickle.load(f)
 
-
-with open(r"D:\Project\Weather Prediction using Hybird models\Backend\models\label_encoder.pkl", "rb") as f:
+with open(LABEL_ENCODER_PATH, "rb") as f:
     label_encoder = pickle.load(f)
 
 # === FastAPI App ===
