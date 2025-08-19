@@ -12,8 +12,8 @@ scikit-learn==1.5.1
 
 # Utilities
 joblib==1.4.2
-pandas==2.2.2
-numpy<2.0
+pandas>=2.0,<2.3
+numpy>=1.23,<1.27
 
 # For API requests (if used in weather_api.py)
 requests==2.32.3
